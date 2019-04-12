@@ -1,0 +1,1 @@
+This app needs a local server to be executed correctly. Otherwise CORS will block the files being loaded.
