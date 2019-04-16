@@ -1,5 +1,5 @@
 class Cube {
-  cubies;
+  cubies = [];
 
   newCube(size, cubieWidth) {
     this.cubies = new Array();

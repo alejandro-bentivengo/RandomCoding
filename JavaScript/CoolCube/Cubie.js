@@ -1,8 +1,7 @@
 class Cubie {
-  constructor(vector, width, colour) {
+  constructor(vector, width) {
     this.vector = vector;
     this.width = width;
-    this.colour = colour;
   }
 
   shouldDraw() {
@@ -22,10 +21,11 @@ class Cubie {
 
   draw() {
     if (this.shouldDraw()) {
-      fill(this.colour.r, this.colour.g, this.colour.b);
+      stroke(0);
       let offset = this.width / 2;
       beginShape();
       // F
+      fill(colours.WHITE.r, colours.WHITE.g, colours.WHITE.b);
       vertex(this.vector.x - offset, this.vector.y + offset, this.vector.z + offset); //1
       vertex(this.vector.x + offset, this.vector.y + offset, this.vector.z + offset); //2
       vertex(this.vector.x + offset, this.vector.y - offset, this.vector.z + offset); //3
@@ -34,6 +34,7 @@ class Cubie {
       endShape();
       beginShape();
       // T
+      fill(colours.RED.r, colours.RED.g, colours.RED.b);
       vertex(this.vector.x - offset, this.vector.y + offset, this.vector.z + offset); //1
       vertex(this.vector.x + offset, this.vector.y + offset, this.vector.z + offset); //2
       vertex(this.vector.x + offset, this.vector.y + offset, this.vector.z - offset); //7
@@ -41,7 +42,8 @@ class Cubie {
       vertex(this.vector.x - offset, this.vector.y + offset, this.vector.z + offset); //1
       endShape();
       beginShape();
-      // R
+      // L
+      fill(colours.BLUE.r, colours.BLUE.g, colours.BLUE.b);
       vertex(this.vector.x + offset, this.vector.y + offset, this.vector.z + offset); //2
       vertex(this.vector.x + offset, this.vector.y - offset, this.vector.z + offset); //3
       vertex(this.vector.x + offset, this.vector.y - offset, this.vector.z - offset); //6
@@ -50,6 +52,7 @@ class Cubie {
       endShape();
       beginShape();
       // BK
+      fill(colours.YELLOW.r, colours.YELLOW.g, colours.YELLOW.b);
       vertex(this.vector.x + offset, this.vector.y - offset, this.vector.z - offset); //6
       vertex(this.vector.x - offset, this.vector.y - offset, this.vector.z - offset); //5
       vertex(this.vector.x - offset, this.vector.y + offset, this.vector.z - offset); //8
@@ -57,7 +60,8 @@ class Cubie {
       vertex(this.vector.x + offset, this.vector.y - offset, this.vector.z - offset); //6
       endShape();
       beginShape();
-      // L
+      // R
+      fill(colours.GREEN.r, colours.GREEN.g, colours.GREEN.b);
       vertex(this.vector.x - offset, this.vector.y - offset, this.vector.z + offset); //4
       vertex(this.vector.x - offset, this.vector.y - offset, this.vector.z - offset); //5
       vertex(this.vector.x - offset, this.vector.y + offset, this.vector.z - offset); //8
@@ -66,6 +70,7 @@ class Cubie {
       endShape();
       beginShape();
       //BOT
+      fill(colours.ORANGE.r, colours.ORANGE.g, colours.ORANGE.b);
       vertex(this.vector.x + offset, this.vector.y - offset, this.vector.z + offset); //3
       vertex(this.vector.x - offset, this.vector.y - offset, this.vector.z + offset); //4
       vertex(this.vector.x - offset, this.vector.y - offset, this.vector.z - offset); //5

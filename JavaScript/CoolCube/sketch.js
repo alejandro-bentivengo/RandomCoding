@@ -38,15 +38,13 @@ let cubeWidth = 20;
 function setup() {
   createCanvas(800, 600, WEBGL);
   posOffset = (cubesPerSide * cubeWidth) / 2;
-
   easycam = createEasyCam(this._renderer, { distance: 400, center: [posOffset, posOffset, posOffset] });
-  console.log(easycam.getCenter());
   cube = new Cube();
   cube.newCube(cubesPerSide, cubeWidth);
 }
 
 function draw() {
-  background(0);
+  background(60);
   if (cube) cube.draw();
 
   let dirX = (mouseX / width - 0.5) * 2;
