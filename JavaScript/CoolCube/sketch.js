@@ -36,6 +36,7 @@ let cubesPerSide = 3;
 let cubeWidth = 20;
 
 function setup() {
+  angleMode(DEGREES);
   createCanvas(800, 600, WEBGL);
   posOffset = (cubesPerSide * cubeWidth) / 2;
   easycam = createEasyCam(this._renderer, { distance: 400, center: [posOffset, posOffset, posOffset] });
@@ -46,8 +47,4 @@ function setup() {
 function draw() {
   background(60);
   if (cube) cube.draw();
-
-  let dirX = (mouseX / width - 0.5) * 2;
-  let dirY = (mouseY / height - 0.5) * 2;
-  directionalLight(cubesPerSide * cubeWidth + 100, cubesPerSide * cubeWidth + 100, cubesPerSide * cubeWidth + 100, -dirX, -dirY, -1);
 }
