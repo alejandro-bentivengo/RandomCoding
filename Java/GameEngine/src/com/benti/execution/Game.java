@@ -49,6 +49,7 @@ public class Game extends Canvas implements Runnable {
 
     public void run() {
         long lastTime = System.nanoTime();
+        long timer = System.currentTimeMillis();
         final double ns = 1000000000.0 / 60.0;
         double delta = 0;
         int frames = 0;
@@ -64,6 +65,15 @@ public class Game extends Canvas implements Runnable {
             }
             render();
             frames++;
+
+            if (System.currentTimeMillis() - timer >= 1000) {
+                timer = System.currentTimeMillis();
+                frame.setTitle("Game Engine - " + _VERSION + " - " + updates + " ups, " + frames + " fps");
+                System.out.println(updates + " ups, " + frames + " fps");
+                updates = 0;
+                frames = 0;
+
+            }
         }
         stop();
     }
