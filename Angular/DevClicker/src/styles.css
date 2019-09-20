@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bolder;
+}
+body {
+  font-family: 'Consolas', 'monaco', 'monospace';
+  background: #f8f8f8;
+}
+
+body .ui-widget {
+  font-family: 'Consolas', 'monaco', 'monospace';
+  font-size: 14px;
+  text-decoration: none;
+}
+
+body
+  .ui-autocomplete.ui-autocomplete-multiple
+  .ui-autocomplete-multiple-container
+  .ui-autocomplete-input-token
+  input {
+  font-family: 'Consolas', 'monaco', 'monospace';
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+body .ui-chips > ul.ui-inputtext .ui-chips-input-token input {
+  font-family: 'Consolas', 'monaco', 'monospace';
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  color: #333333;
+}
+
+body .ui-table .ui-editable-column input {
+  font-size: 14px;
+  font-family: 'Consolas', 'monaco', 'monospace';
+}
+
+body .ui-treetable .ui-editable-column input {
+  font-size: 14px;
+  font-family: 'Consolas', 'monaco', 'monospace';
+}
+
+body .ui-terminal .ui-terminal-input {
+  font-size: 14px;
+  font-family: 'Consolas', 'monaco', 'monospace';
+  height: 16px;
+}
+
+.spacer-top {
+  margin-top: 10px;
+}
+
+body .ui-menuitem-icon {
+  font-size: 30px !important;
+}
+
+p-button.code button {
+  font-size: 25px !important;
+}
+
+.box {
+  background-color: #cce4f7;
+  text-align: center;
+  border-radius: 30px;
+  margin: 10px;
+  color: #333333;
+}

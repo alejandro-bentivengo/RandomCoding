@@ -1,0 +1,54 @@
+{
+  "name": "this file defines the structures available and its properties",
+  "objects": [
+    {
+      "id": 2,
+      "name": "Junior Developer",
+      "baseLines": 10,
+      "cost": "5000",
+      "conditions": [{ "property": "upgrade", "value": "10" }]
+    },
+    {
+      "id": 3,
+      "name": "Semisenior Developer",
+      "baseLines": 100,
+      "cost": "7500",
+      "conditions": [{ "property": "upgrade", "value": "10" }]
+    },
+    {
+      "id": 4,
+      "name": "Senior Developer",
+      "baseLines": 1000,
+      "cost": "10000",
+      "conditions": [{ "property": "upgrade", "value": "10" }]
+    },
+    {
+      "id": 5,
+      "name": "Software Engineer",
+      "baseLines": 10000,
+      "cost": "15000",
+      "conditions": []
+    },
+    {
+      "id": 6,
+      "name": "Software Architect",
+      "baseLines": 15000,
+      "cost": "20000",
+      "conditions": []
+    },
+    {
+      "id": 7,
+      "name": "Software Company",
+      "baseLines": 35000,
+      "cost": "100000",
+      "conditions": []
+    },
+    {
+      "id": 8,
+      "name": "Slave country",
+      "baseLines": 100000,
+      "cost": "1000000",
+      "conditions": []
+    }
+  ]
+}
