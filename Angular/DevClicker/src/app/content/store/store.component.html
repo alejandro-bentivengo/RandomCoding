@@ -1,0 +1,22 @@
+<div class="p-grid p-dir-col">
+  <div class="p-grid">
+    <ng-container *ngFor="let playerUpgrade of getUpgradesForRow(1)">
+      <div class="p-col box">
+        <app-player-upgrade
+          [playerUpgrade]="playerUpgrade"
+          (upgradeBought)="upgradeBought($event)"
+        ></app-player-upgrade>
+      </div>
+    </ng-container>
+  </div>
+  <div class="p-grid">
+    <ng-container *ngFor="let playerUpgrade of getUpgradesForRow(2)">
+      <div class="p-col box">
+        <app-player-upgrade
+          [playerUpgrade]="playerUpgrade"
+          (upgradeBought)="upgradeBought($event)"
+        ></app-player-upgrade>
+      </div>
+    </ng-container>
+  </div>
+</div>

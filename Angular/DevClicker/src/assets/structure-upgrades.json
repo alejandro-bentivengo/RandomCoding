@@ -1,0 +1,29 @@
+{
+  "name": "this file defines the structures available and its properties",
+  "objects": [
+    {
+      "id": 2,
+      "name": "Mechanical Keyboard",
+      "conditions": [{ "property": "upgrade", "value": "10" }],
+      "cost": "2000",
+      "porcentualImprovement": 0.1,
+      "appliance": "BASE"
+    },
+    {
+      "id": 3,
+      "name": "ADSL Connecion",
+      "conditions": [{ "property": "upgrade", "value": "10" }],
+      "cost": "5000",
+      "porcentualImprovement": 0.1,
+      "appliance": "BASE"
+    },
+    {
+      "id": 4,
+      "name": "Gamer Keyboard",
+      "conditions": [{ "property": "upgrade", "value": "10" }],
+      "cost": "7000",
+      "porcentualImprovement": 0.1,
+      "appliance": "BASE"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<div class="p-grid p-dir-col">
+  <div class="p-col">
+    Lines of code available: {{ getLines().toLocaleString() }}
+  </div>
+  <div class="p-col">
+    <p-button
+      class="code"
+      label="Code"
+      icon="fa fa-fw fa-bug"
+      (onClick)="code()"
+    ></p-button>
+  </div>
+</div>

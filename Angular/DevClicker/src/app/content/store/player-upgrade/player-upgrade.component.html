@@ -1,0 +1,13 @@
+<div class="ui-g">
+  <div class="ui-g-12">
+    <h3>{{ playerUpgrade.name }}</h3>
+  </div>
+  <div class="ui-g-12">{{ playerUpgrade.description }}</div>
+  <div class="ui-g-12">
+    <p-button
+      [label]="'Buy ' + playerUpgrade.cost"
+      (onClick)="buyUpgrade()"
+    ></p-button>
+  </div>
+  <div class="ui-g-12"></div>
+</div>
