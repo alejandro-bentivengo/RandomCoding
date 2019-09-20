@@ -72,3 +72,7 @@ p-button.code button {
   margin: 10px;
   color: #333333;
 }
+
+.spacer {
+  padding: 15px;
+}

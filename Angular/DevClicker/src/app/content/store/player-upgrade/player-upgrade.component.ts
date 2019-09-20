@@ -14,7 +14,11 @@ export class PlayerUpgradeComponent implements OnInit {
 
   ngOnInit() {}
 
-  buyUpgrade() {
+  protected buyUpgrade() {
     this.upgradeBought.emit(this.playerUpgrade.id);
+  }
+
+  protected getPercentage() {
+    return this.playerUpgrade.porcentualImprovement * 100;
   }
 }
