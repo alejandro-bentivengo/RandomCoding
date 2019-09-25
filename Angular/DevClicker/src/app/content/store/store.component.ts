@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/app/services/game.service';
 import { PlayerUpgrade } from 'src/app/model/player.upgrade';
+import { PlayerUpgradeService } from 'src/app/services/player-upgrade.service';
 
 @Component({
   selector: 'app-store',
@@ -8,12 +9,15 @@ import { PlayerUpgrade } from 'src/app/model/player.upgrade';
   styleUrls: ['./store.component.css']
 })
 export class StoreComponent implements OnInit {
-  constructor(private gameService: GameService) {}
+  constructor(
+    private gameService: GameService,
+    private playerUpgradeService: PlayerUpgradeService
+  ) {}
 
   ngOnInit() {}
 
   getUpgradesForRow(i: number): Array<PlayerUpgrade> {
-    const upgrades = this.gameService.getPlayerUpgradesToPurchase();
+    const upgrades = this.playerUpgradeService.getPlayerUpgradesToPurchase();
     if (upgrades.length === 0) {
       return upgrades;
     }
@@ -37,6 +41,6 @@ export class StoreComponent implements OnInit {
 
   upgradeBought(event: number) {
     console.log(event);
-    this.gameService.playerUpgradeBought(event);
+    this.playerUpgradeService.playerUpgradeBought(event);
   }
 }

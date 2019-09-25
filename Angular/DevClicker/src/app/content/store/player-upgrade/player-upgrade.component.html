@@ -5,9 +5,15 @@
   <div class="ui-g-12">{{ playerUpgrade.description }}</div>
   <div class="ui-g-12">
     <p-button
+      icon="fas fa-fw fa-hand-holding-usd"
       [label]="'Buy ' + playerUpgrade.cost"
+      [disabled]="!canBuy()"
       (onClick)="buyUpgrade()"
     ></p-button>
+  </div>
+  <div class="ui-g-12">
+    Gives a {{ getPercentage() }}% improvement over
+    {{ playerUpgrade.appliance }}
   </div>
   <div class="ui-g-12"></div>
 </div>
