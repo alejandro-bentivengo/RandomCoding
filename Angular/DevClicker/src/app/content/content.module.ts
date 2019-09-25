@@ -11,6 +11,8 @@ import { CardModule } from 'primeng/card';
 import { GameLoaderService } from '../services/game-loader.service';
 import { StructuresComponent } from './structures/structures.component';
 import { PlayerUpgradeComponent } from './store/player-upgrade/player-upgrade.component';
+import { PlayerUpgradeService } from '../services/player-upgrade.service';
+import { PlayerService } from '../services/player.service';
 
 const appRoutes: Routes = [
   {
@@ -40,6 +42,11 @@ const appRoutes: Routes = [
     CardModule
   ],
   exports: [ContentComponent],
-  providers: [GameService, GameLoaderService]
+  providers: [
+    GameService,
+    GameLoaderService,
+    PlayerUpgradeService,
+    PlayerService
+  ]
 })
 export class ContentModule {}

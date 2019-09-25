@@ -5,7 +5,7 @@
       "id": 2,
       "name": "Mechanical Keyboard",
       "description": "Clak! Clak! Clak!",
-      "conditions": [{ "property": "upgrade", "value": "10" }],
+      "conditions": [{ "conditionType": "LINES", "value": 5000 }],
       "cost": "2000",
       "porcentualImprovement": 0.1,
       "appliance": "BASE"
@@ -14,7 +14,7 @@
       "id": 3,
       "name": "ADSL Connecion",
       "description": "Faster internet... for coding... *wink*",
-      "conditions": [{ "property": "upgrade", "value": "10" }],
+      "conditions": [{ "conditionType": "PREV" }],
       "cost": "5000",
       "porcentualImprovement": 0.1,
       "appliance": "BASE"
@@ -23,7 +23,7 @@
       "id": 4,
       "name": "Gamer Keyboard",
       "description": "No more clak! Lights look cool though...",
-      "conditions": [{ "property": "upgrade", "value": "10" }],
+      "conditions": [{ "conditionType": "PREV" }],
       "cost": "7000",
       "porcentualImprovement": 0.1,
       "appliance": "BASE"
@@ -32,7 +32,7 @@
       "id": 5,
       "name": "Comfy Chair",
       "description": "Your back will thank you",
-      "conditions": [{ "property": "upgrade", "value": "10" }],
+      "conditions": [{ "conditionType": "SPEC", "value": 3 }],
       "cost": "7500",
       "porcentualImprovement": 0.05,
       "appliance": "BASE"
@@ -41,7 +41,7 @@
       "id": 6,
       "name": "Gamer Chair",
       "description": "Fancy plastic chair... will give you that edge you need!",
-      "conditions": [{ "property": "upgrade", "value": "10" }],
+      "conditions": [{ "conditionType": "PREV" }],
       "cost": "10000",
       "porcentualImprovement": 0.1,
       "appliance": "BASE"
@@ -50,7 +50,7 @@
       "id": 7,
       "name": "Wide mouse-pad",
       "description": "Stop sliding your mouse around the table dude, it hurts...",
-      "conditions": [{ "property": "upgrade", "value": "10" }],
+      "conditions": [{ "conditionType": "PREV" }],
       "cost": "12000",
       "porcentualImprovement": 0.1,
       "appliance": "BASE"
@@ -59,7 +59,7 @@
       "id": 8,
       "name": "Bigger Desk",
       "description": "Big big big!!!",
-      "conditions": [{ "property": "upgrade", "value": "10" }],
+      "conditions": [{ "conditionType": "PREV" }],
       "cost": "15000",
       "porcentualImprovement": 0.05,
       "appliance": "BASE"

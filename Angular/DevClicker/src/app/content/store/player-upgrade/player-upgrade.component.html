@@ -7,6 +7,7 @@
     <p-button
       icon="fas fa-fw fa-hand-holding-usd"
       [label]="'Buy ' + playerUpgrade.cost"
+      [disabled]="!canBuy()"
       (onClick)="buyUpgrade()"
     ></p-button>
   </div>

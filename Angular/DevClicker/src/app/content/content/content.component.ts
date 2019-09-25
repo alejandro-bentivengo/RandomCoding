@@ -20,11 +20,15 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      { label: 'Your "room"', icon: 'fa fa-fw fa-home', routerLink: ['/home'] },
-      { label: 'Store', icon: 'pi pi-money-bill', routerLink: ['/store'] },
+      { label: 'Your "room"', icon: 'fas fa-home', routerLink: ['/home'] },
+      {
+        label: 'Store',
+        icon: 'fas fa-money-bill',
+        routerLink: ['/store']
+      },
       {
         label: 'HR and Properties',
-        icon: 'fa fa-fw fa-code',
+        icon: 'far fa-building',
         routerLink: ['/structures']
       }
     ];

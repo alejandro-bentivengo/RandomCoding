@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/app/services/game.service';
 import { NumberFormatTool } from 'src/app/utils/NumberFormatTool';
+import { PlayerService } from 'src/app/services/player.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,18 @@ import { NumberFormatTool } from 'src/app/utils/NumberFormatTool';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private gameService: GameService) {}
+  constructor(
+    private gameService: GameService,
+    private playerService: PlayerService
+  ) {}
 
   ngOnInit() {}
 
   getLines() {
     return NumberFormatTool.getNumberAsString(
-      this.gameService.getPlayer().lines
+      this.playerService.getPlayer()
+        ? this.playerService.getPlayer().lines
+        : '0'
     );
   }
 
