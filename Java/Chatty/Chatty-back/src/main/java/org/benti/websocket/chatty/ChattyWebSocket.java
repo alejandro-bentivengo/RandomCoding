@@ -5,11 +5,9 @@ import org.apache.logging.log4j.Logger;
 import org.benti.common.message.Message;
 import org.benti.websocket.ClientsService;
 import org.benti.websocket.IWebSocket;
-import org.benti.websocket.authentication.AuthenticationService;
 import org.benti.websocket.translators.JsonMessageDecoder;
 import org.benti.websocket.translators.JsonMessageEncoder;
 
-import javax.websocket.CloseReason;
 import javax.websocket.EncodeException;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -29,18 +27,11 @@ public class ChattyWebSocket implements IWebSocket {
     private final static Logger LOG = LogManager.getLogger(ChattyWebSocket.class);
 
     private ClientsService clientsService = new ClientsService();
-    private AuthenticationService authenticationService = new AuthenticationService();
 
-    // Not optimal to validate user session here, but its better than nothing
     @OnOpen
     public void onOpen(Session session) throws IOException {
-        LOG.info("Client " + session.getId() + " attempting connection...");
-        if (authenticationService.isSessionValid(session)) {
-            LOG.info("Client " + session.getId() + " connected...");
-            clientsService.addClient(session);
-        } else {
-            session.close(new CloseReason(CloseReason.CloseCodes.CANNOT_ACCEPT, "Invalid authentication token"));
-        }
+        // Client service will be in charge of session authentication via url parameter
+        clientsService.addClient(session);
     }
 
     @OnMessage
