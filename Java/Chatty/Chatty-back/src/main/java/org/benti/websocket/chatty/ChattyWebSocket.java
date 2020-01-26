@@ -31,6 +31,7 @@ public class ChattyWebSocket implements IWebSocket {
     private ClientsService clientsService = new ClientsService();
     private AuthenticationService authenticationService = new AuthenticationService();
 
+    // Not optimal to validate user session here, but its better than nothing
     @OnOpen
     public void onOpen(Session session) throws IOException {
         LOG.info("Client " + session.getId() + " attempting connection...");
@@ -60,7 +61,7 @@ public class ChattyWebSocket implements IWebSocket {
     @OnError
     public void onError(Throwable someError, Session session) throws IOException {
         LOG.error("Something messed up! Woops!", someError);
-        session.getBasicRemote().sendText("Something went wrong when processing the last message");
+        session.getBasicRemote().sendText("Something went wrong when processing the last request");
     }
 
 }
