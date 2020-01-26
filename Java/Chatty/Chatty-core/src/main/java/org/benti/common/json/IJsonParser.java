@@ -1,5 +1,7 @@
 package org.benti.common.json;
 
+import org.benti.common.exceptions.InvalidJsonException;
+
 import java.util.Map;
 
 /**
@@ -7,9 +9,11 @@ import java.util.Map;
  */
 public interface IJsonParser {
 
-    <T> T readAsObject(String json, Class<T> t);
+    <T> T readAsObject(String json, Class<T> t) throws InvalidJsonException;
 
     Map readAsMap(String json);
+
+    boolean isJson(String tentativeJson);
 
     <T> String write(T object);
 

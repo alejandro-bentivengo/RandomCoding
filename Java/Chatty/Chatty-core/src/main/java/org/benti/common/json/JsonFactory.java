@@ -6,11 +6,11 @@ public abstract class JsonFactory {
 
     private static JsonTypes defaultJson = JsonTypes.JSONB;
 
-    private static IJsonParser getJsonImpl() {
+    public static IJsonParser getJsonImpl() {
         return getJsonImpl(defaultJson);
     }
 
-    private static IJsonParser getJsonImpl(JsonTypes defaultJson) {
+    public static IJsonParser getJsonImpl(JsonTypes jsonType) {
         switch (defaultJson) {
             case JSONB:
                 return new JsonBParser();

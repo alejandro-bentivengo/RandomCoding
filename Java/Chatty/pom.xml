@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.benti</groupId>
-    <artifactId>Chatty</artifactId>
+    <artifactId>chatty</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1</version>
     <modules>
@@ -20,7 +20,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--  -->
+            <!-- Lombok! :D -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -35,6 +35,11 @@
                 <version>1.0</version>
             </dependency>
             <dependency>
+                <groupId>org.eclipse</groupId>
+                <artifactId>yasson</artifactId>
+                <version>1.0.6</version>
+            </dependency>
+            <dependency>
                 <groupId>org.glassfish</groupId>
                 <artifactId>javax.json</artifactId>
                 <version>1.1.4</version>
@@ -45,6 +50,26 @@
                 <groupId>javax.websocket</groupId>
                 <artifactId>javax.websocket-api</artifactId>
                 <version>1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.tyrus</groupId>
+                <artifactId>tyrus-server</artifactId>
+                <version>1.15</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.tyrus</groupId>
+                <artifactId>tyrus-container-grizzly-server</artifactId>
+                <version>1.15</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.tyrus</groupId>
+                <artifactId>tyrus-spi</artifactId>
+                <version>1.15</version>
             </dependency>
 
             <!-- Database stuff -->
@@ -57,6 +82,18 @@
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
                 <version>5.4.10.Final</version>
+            </dependency>
+
+            <!-- Log4J -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>2.13.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>2.13.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
