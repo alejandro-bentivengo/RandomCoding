@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.SignatureException;
 
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
@@ -46,5 +47,16 @@ public class JwtUtils {
         return Jwts.parser()
                 .setSigningKey(DatatypeConverter.parseBase64Binary(JWT_KEY))
                 .parseClaimsJws(token).getBody();
+    }
+
+    public static boolean isValid(String jwt) {
+        try {
+            Jwts.parser()
+                    .setSigningKey(DatatypeConverter.parseBase64Binary(JWT_KEY))
+                    .parseClaimsJws(jwt).getBody();
+        } catch (SignatureException e) {
+            return false;
+        }
+        return true;
     }
 }

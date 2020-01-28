@@ -1,5 +1,6 @@
-package org.benti.authentication.services;
+package org.benti.authentication.controllers;
 
+import org.benti.common.json.JsonFactory;
 import org.benti.common.model.User;
 import org.benti.common.security.jwt.JwtUtils;
 
@@ -9,13 +10,15 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.Date;
+import java.util.Map;
 
 /**
  * @author Alejandro Bentivengo
  * @name AuthenticationController
  * @date 1/28/2020
  */
-@Path("/authentication/")
+@Path("/authentication")
 public class AuthenticationController {
 
     @POST
@@ -23,14 +26,9 @@ public class AuthenticationController {
     @Produces(MediaType.APPLICATION_JSON)
     public String getJsonToken(User user) {
         // User validation should be done here
-        return JwtUtils.newToken(user.getUsername());
+        return JsonFactory.getJsonImpl().write(Map.of("token", JwtUtils.newToken(user.getUsername()), "issuer", "Chatty Software", "issue_date", new Date().toString()));
     }
 
-    @GET
-    @Path("ping")
-    public String ping() {
-        // User validation should be done here
-        return "Server is active!";
-    }
+
 
 }
