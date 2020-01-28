@@ -12,12 +12,6 @@
     <artifactId>chatty-core</artifactId>
 
     <dependencies>
-        <!-- Lombuk duh! -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
         <!-- database -->
         <dependency>
             <groupId>mysql</groupId>

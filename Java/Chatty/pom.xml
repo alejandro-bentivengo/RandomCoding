@@ -9,8 +9,8 @@
     <packaging>pom</packaging>
     <version>0.0.1</version>
     <modules>
-        <module>Chatty-back</module>
-        <module>Chatty-core</module>
+        <module>chatty-back</module>
+        <module>chatty-core</module>
     </modules>
 
     <properties>
