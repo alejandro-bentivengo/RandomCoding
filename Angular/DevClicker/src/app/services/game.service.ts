@@ -9,7 +9,6 @@ import { PlayerService } from './player.service';
   providedIn: 'root'
 })
 export class GameService {
-  private clockSpeed: number;
   private structures: Array<Structure>;
   private structuresUpgrades: Array<StructureUpgrade>;
 
@@ -24,7 +23,6 @@ export class GameService {
   private async loadGame() {
     this.structures = await this.gameLoaderService.loadStructures();
     this.structuresUpgrades = await this.gameLoaderService.loadStructuresUpgrades();
-    this.clockSpeed = 1000;
   }
 
   private loadProperties() {}
@@ -61,10 +59,6 @@ export class GameService {
     this.playerService.getPlayer().totalLines = (
       BigInt(this.playerService.getPlayer().totalLines) + BigInt(lines)
     ).toString();
-  }
-
-  getClockSpeed(): number {
-    return this.clockSpeed;
   }
 
   getStructures(): Array<Structure> {
