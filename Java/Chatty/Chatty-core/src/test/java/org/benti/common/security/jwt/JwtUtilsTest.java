@@ -20,7 +20,7 @@ public class JwtUtilsTest {
     public void getClaimsTest() {
         Claims claims = JwtUtils.getClaims(this.getToken("SubjetForTest"));
         Assert.assertNotNull(claims);
-        Assert.assertEquals("Claims subject did not match JWT", claims.getSubject(), "SubjetForTest");
+        Assert.assertEquals("Claims subject did not match JWT", "SubjetForTest", claims.getSubject());
     }
 
     private String getToken(String subject) {
