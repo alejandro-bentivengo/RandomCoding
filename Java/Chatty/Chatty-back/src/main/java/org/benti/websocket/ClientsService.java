@@ -2,7 +2,7 @@ package org.benti.websocket;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.benti.common.message.Message;
+import org.benti.websocket.message.Message;
 import org.benti.websocket.authentication.AuthenticationService;
 
 import javax.websocket.CloseReason;

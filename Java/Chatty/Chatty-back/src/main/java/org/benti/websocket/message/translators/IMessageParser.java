@@ -1,7 +1,7 @@
-package org.benti.common.message.translators;
+package org.benti.websocket.message.translators;
 
 import org.benti.common.exceptions.InvalidMessageException;
-import org.benti.common.message.Message;
+import org.benti.websocket.message.Message;
 
 public interface IMessageParser {
 

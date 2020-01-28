@@ -1,7 +1,7 @@
-package org.benti.common.message.translators;
+package org.benti.websocket.message.translators;
 
-import org.benti.common.message.MessageTypes;
-import org.benti.common.message.translators.implementations.JsonMessageParser;
+import org.benti.websocket.message.MessageTypes;
+import org.benti.websocket.message.translators.implementations.JsonMessageParser;
 
 public abstract class MessageParserFactory {
 

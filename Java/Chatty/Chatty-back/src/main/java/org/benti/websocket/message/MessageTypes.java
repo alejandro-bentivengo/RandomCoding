@@ -1,4 +1,4 @@
-package org.benti.common.message;
+package org.benti.websocket.message;
 
 public enum MessageTypes {
     JSON

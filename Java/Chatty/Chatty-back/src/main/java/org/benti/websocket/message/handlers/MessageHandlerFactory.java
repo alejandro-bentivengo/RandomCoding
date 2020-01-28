@@ -1,9 +1,9 @@
-package org.benti.common.message.handlers;
+package org.benti.websocket.message.handlers;
 
-import org.benti.common.message.Message;
-import org.benti.common.message.handlers.implementations.FileMessageHandler;
-import org.benti.common.message.handlers.implementations.ImageMessageHandler;
-import org.benti.common.message.handlers.implementations.TextMessageHandler;
+import org.benti.websocket.message.Message;
+import org.benti.websocket.message.handlers.implementations.FileMessageHandler;
+import org.benti.websocket.message.handlers.implementations.ImageMessageHandler;
+import org.benti.websocket.message.handlers.implementations.TextMessageHandler;
 
 public class MessageHandlerFactory {
 

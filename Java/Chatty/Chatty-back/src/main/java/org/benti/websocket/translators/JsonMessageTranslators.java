@@ -1,7 +1,7 @@
 package org.benti.websocket.translators;
 
-import org.benti.common.message.translators.IMessageParser;
-import org.benti.common.message.translators.MessageParserFactory;
+import org.benti.websocket.message.translators.IMessageParser;
+import org.benti.websocket.message.translators.MessageParserFactory;
 
 public abstract class JsonMessageTranslators {
 

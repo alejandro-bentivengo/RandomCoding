@@ -1,11 +1,11 @@
-package org.benti.common.message.translators.implementations;
+package org.benti.websocket.message.translators.implementations;
 
 import org.benti.common.exceptions.InvalidJsonException;
 import org.benti.common.exceptions.InvalidMessageException;
 import org.benti.common.json.IJsonParser;
 import org.benti.common.json.JsonFactory;
-import org.benti.common.message.Message;
-import org.benti.common.message.translators.IMessageParser;
+import org.benti.websocket.message.Message;
+import org.benti.websocket.message.translators.IMessageParser;
 
 public class JsonMessageParser implements IMessageParser {
 

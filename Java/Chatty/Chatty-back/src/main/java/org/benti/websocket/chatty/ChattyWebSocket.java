@@ -2,7 +2,7 @@ package org.benti.websocket.chatty;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.benti.common.message.Message;
+import org.benti.websocket.message.Message;
 import org.benti.websocket.ClientsService;
 import org.benti.websocket.IWebSocket;
 import org.benti.websocket.translators.JsonMessageDecoder;

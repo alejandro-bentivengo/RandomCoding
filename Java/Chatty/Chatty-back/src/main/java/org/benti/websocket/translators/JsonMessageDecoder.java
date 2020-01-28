@@ -3,7 +3,7 @@ package org.benti.websocket.translators;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.benti.common.exceptions.InvalidMessageException;
-import org.benti.common.message.Message;
+import org.benti.websocket.message.Message;
 
 import javax.websocket.DecodeException;
 import javax.websocket.Decoder;
