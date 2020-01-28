@@ -1,8 +1,10 @@
 package org.benti.common.security.jwt;
 
-import io.jsonwebtoken.Claims;
+import com.auth0.jwt.interfaces.Claim;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Map;
 
 /**
  * @author Alejandro Bentivengo
@@ -18,9 +20,9 @@ public class JwtUtilsTest {
 
     @Test
     public void getClaimsTest() {
-        Claims claims = JwtUtils.getClaims(this.getToken("SubjetForTest"));
+        Map<String, Claim> claims = JwtUtils.getClaims(this.getToken("SubjetForTest"));
         Assert.assertNotNull(claims);
-        Assert.assertEquals("Claims subject did not match JWT", "SubjetForTest", claims.getSubject());
+        Assert.assertEquals("Claims subject did not match JWT", "SubjetForTest", claims.get("sub").asString());
     }
 
     private String getToken(String subject) {

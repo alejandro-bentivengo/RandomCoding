@@ -2,7 +2,6 @@ package org.benti.authentication.controllers;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.container.PreMatching;
 
 /**
  * @author Alejandro Bentivengo
@@ -12,9 +11,9 @@ import javax.ws.rs.container.PreMatching;
 @Path("/ping")
 public class PingController {
 
+    // Just a simple check to validate that the authentication service is actually working
     @GET
     public String ping() {
-        // User validation should be done here
         return "Server is active!";
     }
 

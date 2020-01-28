@@ -17,11 +17,14 @@ import javax.ws.rs.core.MediaType;
 @Path("/users/{username}")
 public class UserController {
 
+    // This will be a simple service to check the user details
+    // Some other methods need to be added to modify the user details
+    // Another method should be also added to delete the user if needed
     @Path("")
     @GET
     @Authenticated
     @Produces(MediaType.APPLICATION_JSON)
-    public User getUser(@PathParam("username") String username) {
+    public User getUserDetails(@PathParam("username") String username) {
         return User.builder().username(username).build();
     }
 
