@@ -2,7 +2,7 @@ package org.benti.websocket.chatty;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.benti.websocket.message.Message;
+import org.benti.common.model.Message;
 import org.benti.websocket.ClientsService;
 import org.benti.websocket.IWebSocket;
 import org.benti.websocket.translators.JsonMessageDecoder;
@@ -24,19 +24,23 @@ import java.io.IOException;
 )
 public class ChattyWebSocket implements IWebSocket {
 
-    private final static Logger LOG = LogManager.getLogger(ChattyWebSocket.class);
+    private static final int MAX_SIZE_MB = 5;
+    private static final Logger LOG = LogManager.getLogger(ChattyWebSocket.class);
 
     private ClientsService clientsService = new ClientsService();
 
     @OnOpen
     public void onOpen(Session session) throws IOException {
         // Client service will be in charge of session authentication via url parameter
+        session.getUserPrincipal();
         clientsService.addClient(session);
     }
 
-    @OnMessage
+    @OnMessage(maxMessageSize = 1024 * 1024 * 1)
     public void onMessage(Message message, Session session) throws IOException {
         try {
+            // At this point it is assumed that a client added is allowed to be here
+            // No need to re-check his permissions
             clientsService.broadcastToAllClients(message, session);
         } catch (EncodeException e) {
             LOG.error(e);
@@ -52,7 +56,8 @@ public class ChattyWebSocket implements IWebSocket {
     @OnError
     public void onError(Throwable someError, Session session) throws IOException {
         LOG.error("Something messed up! Woops!", someError);
-        session.getBasicRemote().sendText("Something went wrong when processing the last request");
+        if (session.isOpen())
+            session.getBasicRemote().sendText("Something went wrong when processing the last request");
     }
 
 }

@@ -15,25 +15,30 @@ import java.util.Set;
 
 /**
  * @author Alejandro Bentivengo
- * @name User
- * @date 1/28/2020
+ * @name Role
+ * @date 1/29/2020
  */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User extends Audit implements Serializable {
+public class Role extends Audit implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userPk;
-    private String username;
-    private String password;
-    private String email;
-    private String phone;
-    @OneToMany(mappedBy = "user")
-    private Set<UserRoom> rooms;
-    @OneToMany(mappedBy = "user")
-    private Set<Message> messages;
+    private long role_pk;
+
+    private String name;
+
+    private boolean canSendMessages;
+    private boolean canEditMessages;
+    private boolean canDeleteMessages;
+    private boolean canUpdateLogo;
+    private boolean canUpdateName;
+    private boolean canChangeRoles;
+
+    @OneToMany(mappedBy = "role")
+    private Set<UserRoom> userRooms;
+
 }

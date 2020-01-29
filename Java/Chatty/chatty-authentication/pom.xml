@@ -29,7 +29,6 @@
             <artifactId>jersey-media-json-jackson</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>com.benti</groupId>
             <artifactId>chatty-core</artifactId>

@@ -1,6 +1,6 @@
 package org.benti.websocket.translators;
 
-import org.benti.websocket.message.Message;
+import org.benti.common.model.Message;
 
 import javax.websocket.EncodeException;
 import javax.websocket.Encoder;

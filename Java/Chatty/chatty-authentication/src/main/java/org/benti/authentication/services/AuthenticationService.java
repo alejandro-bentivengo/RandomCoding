@@ -6,4 +6,5 @@ package org.benti.authentication.services;
  * @date 1/28/2020
  */
 public class AuthenticationService {
+
 }

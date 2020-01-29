@@ -1,6 +1,6 @@
 package org.benti.websocket;
 
-import org.benti.websocket.message.Message;
+import org.benti.common.model.Message;
 
 import javax.websocket.Session;
 import java.io.IOException;

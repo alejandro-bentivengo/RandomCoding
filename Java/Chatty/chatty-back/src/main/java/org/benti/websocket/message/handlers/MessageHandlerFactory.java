@@ -1,6 +1,6 @@
 package org.benti.websocket.message.handlers;
 
-import org.benti.websocket.message.Message;
+import org.benti.common.model.Message;
 import org.benti.websocket.message.handlers.implementations.FileMessageHandler;
 import org.benti.websocket.message.handlers.implementations.ImageMessageHandler;
 import org.benti.websocket.message.handlers.implementations.TextMessageHandler;

@@ -9,31 +9,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * @author Alejandro Bentivengo
- * @name User
- * @date 1/28/2020
+ * @name UserRoom
+ * @date 1/29/2020
  */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User extends Audit implements Serializable {
+public class UserRoom extends Audit implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userPk;
-    private String username;
-    private String password;
-    private String email;
-    private String phone;
-    @OneToMany(mappedBy = "user")
-    private Set<UserRoom> rooms;
-    @OneToMany(mappedBy = "user")
-    private Set<Message> messages;
+    private long userRoomPk;
+
+    @ManyToOne
+    @JoinColumn(name = "role_pk")
+    private Role role;
+
+    @ManyToOne
+    @JoinColumn(name = "room_pk")
+    private Room room;
+
+    @ManyToOne
+    @JoinColumn(name = "user_pk")
+    private User user;
+
 }
