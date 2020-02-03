@@ -31,8 +31,6 @@ public class ChattyWebSocket implements IWebSocket {
 
     @OnOpen
     public void onOpen(Session session) throws IOException {
-        // Client service will be in charge of session authentication via url parameter
-        session.getUserPrincipal();
         clientsService.addClient(session);
     }
 

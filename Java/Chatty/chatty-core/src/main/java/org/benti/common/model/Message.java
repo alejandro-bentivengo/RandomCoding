@@ -5,10 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 import java.io.Serializable;
 
 @Builder
@@ -23,8 +26,10 @@ public class Message extends Audit implements Serializable {
     public static final int FILE = 2;
     public static final int AUDIO = 3;
 
-    @Transient
-    private String auth;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonbTransient
+    private long message_pk;
     private String data;
     @ManyToOne
     @JoinColumn(name = "user_pk")
