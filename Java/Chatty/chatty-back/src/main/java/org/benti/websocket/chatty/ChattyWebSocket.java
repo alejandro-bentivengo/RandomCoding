@@ -36,7 +36,7 @@ public class ChattyWebSocket implements IWebSocket {
         clientsService.addClient(session);
     }
 
-    @OnMessage(maxMessageSize = 1024 * 1024 * 1)
+    @OnMessage(maxMessageSize = 1024 * 1024 * MAX_SIZE_MB)
     public void onMessage(Message message, Session session) throws IOException {
         try {
             // At this point it is assumed that a client added is allowed to be here

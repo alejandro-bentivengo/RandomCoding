@@ -7,7 +7,6 @@ import javax.websocket.Session;
 
 public class WebSocketAuthenticationFilter implements IWebSocketFilter {
 
-
     @Override
     public boolean filter(Session session) {
         if (session.getPathParameters().containsKey("auth")) {

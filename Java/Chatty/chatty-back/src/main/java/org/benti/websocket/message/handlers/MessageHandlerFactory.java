@@ -17,6 +17,8 @@ public class MessageHandlerFactory {
                 return new ImageMessageHandler();
             case Message.FILE:
                 return new FileMessageHandler();
+            case Message.AUDIO:
+
             default:
                 return getHandler(DEFAULT_HANDLER);
         }
