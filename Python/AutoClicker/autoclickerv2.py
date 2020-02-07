@@ -19,6 +19,10 @@ def printMenusAndClicks():
     print("Press F8 to increase clicking speed")
     print("When ready press F9 to start clicking")
     print("Press F10 to go back to speed selection")
+    print("Press Q to exit program")
+    print("")
+    print("Valid speeds: between 0 (super fast) and 1000 (once per second)")
+    print("")
     print("Current selected speed: 1 click per " + str(speed) + "ms")
 
 def runClicker():
@@ -53,6 +57,8 @@ def speedOnOff():
         elif keyboard.is_pressed('f9'):
             print("Turning on autoclicker!")
             runClicker()
+        elif keyboard.is_pressed('q'):
+            exit()
         time.sleep(200/1000)
 
 speedOnOff()
