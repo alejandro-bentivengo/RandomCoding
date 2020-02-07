@@ -12,3 +12,12 @@ Compilation instructions:
 6) Enjoy!
 
 Otherwise feel free to download the Windows compiled version here: https://github.com/clodan/RandomCoding/releases/tag/1.0
+
+
+# Auto Clicker v2
+Very similar to v1, but with easier speed selection via function keys :)
+
+Compilation instructions:
+Same as V1, but on step 5 change to use the correct file
+
+Feel free to download the Windows compiled version here: https://github.com/clodan/RandomCoding/releases/tag/2.0
