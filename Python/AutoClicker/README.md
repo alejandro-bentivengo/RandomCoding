@@ -10,3 +10,5 @@ Compilation instructions:
 4) Run "pip install pyinstaller" on any admin console
 5) From the folder with the source code run: "pyinstaller -F autoclicker.py". Optional: use the -i parameter to add the icon!
 6) Enjoy!
+
+Otherwise feel free to download the Windows compiled version here: https://github.com/clodan/RandomCoding/releases/tag/1.0
