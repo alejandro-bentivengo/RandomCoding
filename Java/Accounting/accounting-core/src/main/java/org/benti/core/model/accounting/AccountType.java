@@ -5,14 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.benti.core.model.Audit;
-import org.benti.core.model.ownership.User;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Builder
@@ -27,10 +27,12 @@ public class AccountType extends Audit {
     private long accountTypePk;
 
     @Column(nullable = false, unique = true)
+    private String code;
+    @Column(nullable = false, unique = true)
     private String name;
+    private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "user_pk")
-    private User user;
+    @OneToMany(mappedBy = "accountType")
+    private Set<Account> accounts = new HashSet<>(0);
 
 }

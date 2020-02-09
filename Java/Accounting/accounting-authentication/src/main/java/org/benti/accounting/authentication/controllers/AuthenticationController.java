@@ -24,7 +24,6 @@ public class AuthenticationController {
 
     private static AuthenticationService authenticationService;
 
-
     private AuthenticationService getAuthenticationService() {
         if (authenticationService == null) {
             authenticationService = new AuthenticationService();

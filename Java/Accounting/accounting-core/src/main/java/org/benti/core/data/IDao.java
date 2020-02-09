@@ -1,6 +1,5 @@
 package org.benti.core.data;
 
-import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +13,7 @@ public interface IDao<T> {
 
     T findById(long id);
 
-    Optional<T> getSingle(CriteriaQuery<T> query);
+    Optional<T> getSingleWithNamedQuery(String query, String... parameters);
 
-    Optional<List<T>> getList(CriteriaQuery<T> query);
+    Optional<List<T>> getListWithNamedQuery(String query, String... parameters);
 }

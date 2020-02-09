@@ -14,7 +14,7 @@ public class PingController {
     // Just a simple check to validate that the authentication service is actually working
     @GET
     public String ping() {
-        return "Server is active!";
+        return "Authentication Server is active!";
     }
 
 }

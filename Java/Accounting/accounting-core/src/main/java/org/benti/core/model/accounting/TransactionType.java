@@ -22,9 +22,9 @@ import java.util.Set;
 public class TransactionType extends Audit {
 
     @Id
-    @Column(name = "transaction_pk", nullable = false, unique = true)
+    @Column(name = "transaction_type_pk", nullable = false, unique = true)
     @GeneratedValue
-    private long transactionPk;
+    private long transactionTypePk;
 
     @Column(nullable = false, unique = true)
     private String code;

@@ -29,6 +29,8 @@ public class Company extends Audit {
 
     @Column(nullable = false)
     private String name;
+    @Column(nullable = false, unique = true)
+    private String code;
 
     @OneToMany(mappedBy = "company")
     private Set<Account> accounts = new HashSet<>(0);

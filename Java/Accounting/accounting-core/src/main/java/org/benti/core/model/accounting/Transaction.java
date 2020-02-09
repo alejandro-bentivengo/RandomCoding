@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.benti.core.model.Audit;
+import org.benti.core.model.ownership.User;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,6 +37,10 @@ public class Transaction extends Audit {
     @ManyToOne
     @JoinColumn(name = "account_pk")
     private Account account;
+
+    @ManyToOne
+    @JoinColumn(name = "user_pk")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "transaction_type_pk")

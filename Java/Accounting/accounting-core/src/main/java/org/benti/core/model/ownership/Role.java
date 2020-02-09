@@ -23,7 +23,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "roles")
 public class Role extends Audit implements Serializable {
 
     @Id
@@ -39,34 +39,43 @@ public class Role extends Audit implements Serializable {
      * based on the entity
      */
     // Add Permissions
-    @Column(nullable = false)
+    @Column(name = "can_add_transactions", nullable = false)
     private boolean canAddTransactions;
-    @Column(nullable = false)
+    @Column(name = "can_add_accounts", nullable = false)
     private boolean canAddAccounts;
-    @Column(nullable = false)
+    @Column(name = "can_add_3_party_companies", nullable = false)
     private boolean canAdd3PartyCompanies;
-    @Column(nullable = false)
+    @Column(name = "can_add_own_companies", nullable = false)
     private boolean canAddOwnCompanies;
 
+    @Column(name = "can_invite_users_to_company", nullable = false)
+    private boolean canInviteUsersToCompany;
+
     // Edit Permissions
-    @Column(nullable = false)
-    private boolean canEditTransaction;
-    @Column(nullable = false)
+    @Column(name = "can_edit_transactions", nullable = false)
+    private boolean canEditTransactions;
+    @Column(name = "can_edit_accounts", nullable = false)
     private boolean canEditAccounts;
-    @Column(nullable = false)
+    @Column(name = "can_edit_3_party_companies", nullable = false)
     private boolean canEdit3PartyCompanies;
-    @Column(nullable = false)
+    @Column(name = "can_edit_own_companies", nullable = false)
     private boolean canEditOwnCompanies;
 
+    @Column(name = "can_edit_user_roles", nullable = false)
+    private boolean canEditUserRoles;
+
     // Delete Permissions
-    @Column(nullable = false)
+    @Column(name = "can_delete_transaction", nullable = false)
     private boolean canDeleteTransaction;
-    @Column(nullable = false)
+    @Column(name = "can_delete_accounts", nullable = false)
     private boolean canDeleteAccounts;
-    @Column(nullable = false)
+    @Column(name = "can_delete_3_party_companies", nullable = false)
     private boolean canDelete3PartyCompanies;
-    @Column(nullable = false)
+    @Column(name = "can_delete_own_companies", nullable = false)
     private boolean canDeleteOwnCompanies;
+
+    @Column(name = "can_remove_users_from_companies", nullable = false)
+    private boolean canRemoveUsersFromCompanies;
 
     @OneToMany(mappedBy = "role")
     private Set<UserCompany> userCompanies;

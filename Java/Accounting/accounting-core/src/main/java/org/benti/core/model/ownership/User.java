@@ -5,11 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.benti.core.model.Audit;
+import org.benti.core.model.accounting.Transaction;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +21,10 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "users")
+@NamedQueries({
+        @NamedQuery(name = "User.findByUser", query = "SELECT u FROM Users WHERE u.user = :user")
+})
 public class User extends Audit {
 
     @Id
@@ -36,4 +42,6 @@ public class User extends Audit {
 
     @OneToMany(mappedBy = "user")
     private Set<UserCompany> companies = new HashSet(0);
+    @OneToMany(mappedBy = "user")
+    private Set<Transaction> transactions = new HashSet(0);
 }

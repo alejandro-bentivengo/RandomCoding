@@ -16,7 +16,7 @@ public class TimerUtil {
     }
 
     public long stopTimer() {
-        return (end = timerType.parse(System.nanoTime()) - start);
+        return ((end = timerType.parse(System.nanoTime())) - start);
     }
 
     public long getStart() {

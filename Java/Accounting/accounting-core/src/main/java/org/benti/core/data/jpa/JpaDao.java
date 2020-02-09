@@ -5,7 +5,7 @@ import org.benti.core.data.IDao;
 import org.benti.core.exceptions.BasicException;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,21 +57,28 @@ public class JpaDao<T> implements IDao<T>, AutoCloseable {
     }
 
     @Override
-    public Optional<T> getSingle(CriteriaQuery<T> query) {
+    public Optional<T> getSingleWithNamedQuery(String query, String... parameters) {
         try {
-            return Optional.ofNullable(entityManager.createQuery(query).getSingleResult());
+            return Optional.ofNullable(setParameters(entityManager.createNamedQuery(query, typeParameterClass), parameters).getSingleResult());
         } catch (RuntimeException e) {
             return Optional.empty();
         }
     }
 
     @Override
-    public Optional<List<T>> getList(CriteriaQuery<T> query) {
+    public Optional<List<T>> getListWithNamedQuery(String query, String... parameters) {
         try {
-            return Optional.ofNullable(entityManager.createQuery(query).getResultList());
+            return Optional.ofNullable(setParameters(entityManager.createNamedQuery(query, typeParameterClass), parameters).getResultList());
         } catch (RuntimeException e) {
             return Optional.empty();
         }
+    }
+
+    private TypedQuery<T> setParameters(TypedQuery<T> query, String... parameters) {
+        for (int i = 0; i < parameters.length; i++) {
+            query.setParameter(i, parameters[i]);
+        }
+        return query;
     }
 
     @Override
