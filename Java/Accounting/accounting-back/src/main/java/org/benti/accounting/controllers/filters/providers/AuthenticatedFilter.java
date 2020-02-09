@@ -1,6 +1,6 @@
-package org.benti.accounting.authentication.filters.providers;
+package org.benti.accounting.controllers.filters.providers;
 
-import org.benti.accounting.authentication.filters.annotations.Authenticated;
+import org.benti.accounting.controllers.filters.annotations.Authenticated;
 import org.benti.core.common.security.jwt.JwtUtils;
 
 import javax.ws.rs.container.ContainerRequestContext;

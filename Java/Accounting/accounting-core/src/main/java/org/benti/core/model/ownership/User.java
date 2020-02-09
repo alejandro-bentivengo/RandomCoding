@@ -39,9 +39,16 @@ public class User extends Audit {
     private String password;
     @Column(unique = true, nullable = false)
     private String email;
+    private String phone;
 
     @OneToMany(mappedBy = "user")
     private Set<UserCompany> companies = new HashSet(0);
     @OneToMany(mappedBy = "user")
     private Set<Transaction> transactions = new HashSet(0);
+
+    // Self checking method to make sure the user is ready to be saved
+    public boolean validate() {
+        return (name != null && user != null && password != null && email != null);
+    }
+
 }

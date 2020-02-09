@@ -1,6 +1,6 @@
-package org.benti.accounting.authentication.filters;
+package org.benti.accounting.controllers.filters;
 
-import org.benti.accounting.authentication.filters.providers.AuthenticatedFilter;
+import org.benti.accounting.controllers.filters.providers.AuthenticatedFilter;
 
 import javax.ws.rs.container.DynamicFeature;
 import javax.ws.rs.container.ResourceInfo;

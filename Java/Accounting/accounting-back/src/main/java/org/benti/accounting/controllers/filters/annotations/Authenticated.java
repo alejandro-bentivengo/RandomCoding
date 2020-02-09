@@ -1,4 +1,4 @@
-package org.benti.accounting.authentication.filters.annotations;
+package org.benti.accounting.controllers.filters.annotations;
 
 import javax.ws.rs.NameBinding;
 import java.lang.annotation.ElementType;

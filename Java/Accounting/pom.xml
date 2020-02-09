@@ -143,6 +143,13 @@
                 <version>0.9.0</version>
             </dependency>
 
+            <!-- Self dependency for child modules -->
+            <dependency>
+                <groupId>org.benti</groupId>
+                <artifactId>accounting-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <!-- Testing -->
             <!-- JUnit -->
             <dependency>

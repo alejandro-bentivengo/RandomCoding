@@ -5,6 +5,7 @@ import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.Claim;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
 
 import java.time.LocalDateTime;
@@ -43,10 +44,6 @@ public class JwtUtils {
                 .build();
     }
 
-    public static Map<String, Claim> getClaims(String token) {
-        return JWT_VERIFIER.verify(token).getClaims();
-    }
-
     public static boolean isValid(String token) {
         try {
             JWT_VERIFIER.verify(token);
@@ -55,4 +52,18 @@ public class JwtUtils {
         }
         return true;
     }
+
+    public static String getSubject(String token) {
+        return getJwt(token).getSubject();
+    }
+
+
+    public static Map<String, Claim> getClaims(String token) {
+        return getJwt(token).getClaims();
+    }
+
+    private static DecodedJWT getJwt(String token) {
+        return JWT_VERIFIER.verify(token);
+    }
+
 }
