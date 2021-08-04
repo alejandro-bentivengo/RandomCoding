@@ -1,12 +1,14 @@
 let data;
-const cols = 200;
-const rows = 200;
+const cols = 100;
+const rows = 100;
 const _WIDTH = 800;
 const _HEIGHT = 800;
-const _FPS = 999;
+const _FPS = 60;
 const _ANTOFFSET = 0;
 let rectValues = { "height": _HEIGHT / rows, "width": _WIDTH / cols };
 let ant;
+const _FASTMODE = true;
+const _FASTLOOPS = 50;
 
 
 function createDataArray(cols, rows) {
@@ -24,14 +26,23 @@ function setup() {
   createDataArray(cols, rows);
   ant = new Ant(floor(random(0, rows)), floor(random(0, cols)), ORIENTATIONS.NORTH);
   frameRate(_FPS);
+  if (_FASTMODE) {
+    drawData();
+  }
 }
 
 function draw() {
-  background(255, 255, 255);
-  drawData();
-  drawLines();
-  drawAnt();
-  moveAnt();
+  if (!_FASTMODE) {
+    background(255, 255, 255);
+    drawData();
+    drawAnt();
+    moveAnt();
+  } else {
+    for (let i = 0; i < _FASTLOOPS; i++) {
+      drawSquareUpdate();
+      moveAnt();
+    }
+  }
 }
 
 function moveAnt() {
@@ -51,34 +62,40 @@ function doBlackMove() {
 }
 
 function drawData() {
+  let drawLines = true;
   for (let y = 0; y < rows; y++) {
+    stroke(color(0, 0, 0));
+    strokeWeight(1);
+    line(0, y * rectValues.height, _WIDTH, y * rectValues.height);
     for (let x = 0; x < cols; x++) {
+      if (drawLines) {
+        stroke(color(0, 0, 0));
+        strokeWeight(1);
+        line(x * rectValues.width, 0, x * rectValues.width, _HEIGHT);        
+      }
       noStroke();
       data[y][x] === 0 ? fill(0) : fill(255);
-      rect(x * rectValues.width, y * rectValues.height, rectValues.width, rectValues.height);
+      rect(1 + (x * rectValues.width), 1 + (y * rectValues.height), (-2 + rectValues.width), (-2 + rectValues.height));
+    }
+    if (drawLines) {
+      stroke(color(0, 0, 0));
+      strokeWeight(1);
+      line(_WIDTH, 0, _WIDTH, _HEIGHT);
+      drawLines = false;
     }
   }
-}
-
-function drawLines() {
   stroke(color(0, 0, 0));
-  for (let x = 0; x < cols; x++) {
-    line(x * rectValues.width, 0, x * rectValues.width, _HEIGHT);
-  }
-  line(_WIDTH, 0, _WIDTH, _HEIGHT);
-  stroke(color(0, 0, 0));
-  for (let y = 0; y < rows; y++) {
-    line(0, y * rectValues.height, _WIDTH, y * rectValues.height);
-  }
+  strokeWeight(1);
   line(0, _HEIGHT, _WIDTH, _HEIGHT);
 }
 
-function drawAnt() {
-  stroke(1);
-  stroke(color(180, 20, 20));
-  fill(color(0, 0, 0));
-  point(getAntXPosition(), getAntYPosition());
+function drawSquareUpdate() {
+  noStroke();
+  data[ant.posy][ant.posx] === 0 ? fill(0) : fill(255);
+  rect(1 + (getAntXPosition()), 1 + (getAntYPosition()), (-2 + rectValues.width), (-2 + rectValues.height));
+}
 
+function drawAnt() {
   stroke(1);
   stroke(color(180, 20, 20));
   fill(color(180, 20, 20));
